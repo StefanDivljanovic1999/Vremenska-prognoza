@@ -1,0 +1,76 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Vremenska prognoza
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+<ion-refresher slot="fixed"(ionRefresh)="doRefresh($event)">
+<ion-refresher-content></ion-refresher-content>
+</ion-refresher>
+
+<div class="main">
+  <span class="city" >{{res.city.name}} </span>
+<span class="date" >{{res.list[0].dt | dateFormatting}} </span>
+<div class="icon">
+<img src="https://openweathermap.org/img/wn/{{res.list[0].weather[0].icon}}@2x.png" alt="">
+</div>
+<span class="description">{{res.list[0].weather[0].main}} </span>
+<span class="temperature">{{res.list[0].main.temp-273.5 | number:'1.0-0'}}°C</span>
+
+</div>
+<ion-grid>
+  <ion-row>
+    <ion-col class="day">{{res.list[0].dt | day}}</ion-col>
+    <ion-col class="day">{{res.list[8].dt | day}}</ion-col>
+    <ion-col class="day">{{res.list[16].dt| day}}</ion-col>
+    <ion-col class="day">{{res.list[24].dt| day}}</ion-col>
+    <ion-col class="day">{{res.list[36].dt| day}}</ion-col>
+   
+  </ion-row>
+
+<!--Sansa da pada kisa-->
+<ion-row>
+    <ion-col class="precipitation">{{res.list[0].wind.speed}}m/s</ion-col>
+    <ion-col class="precipitation">{{res.list[8].wind.speed}}m/s</ion-col>
+    <ion-col class="precipitation">{{res.list[16].wind.speed}}m/s</ion-col>
+    <ion-col class="precipitation">{{res.list[24].wind.speed}}m/s</ion-col>
+    <ion-col class="precipitation">{{res.list[32].wind.speed}}m/s</ion-col>
+   
+  </ion-row>
+
+  <ion-row>
+    <ion-col class="icon-sm"><img src="https://openweathermap.org/img/wn/{{res.list[0].weather[0].icon}}@2x.png"></ion-col>
+    <ion-col class="icon-sm"><img src="https://openweathermap.org/img/wn/{{res.list[8].weather[0].icon}}@2x.png"></ion-col>
+    <ion-col class="icon-sm"><img src="https://openweathermap.org/img/wn/{{res.list[16].weather[0].icon}}@2x.png"></ion-col>
+    <ion-col class="icon-sm"><img src="https://openweathermap.org/img/wn/{{res.list[24].weather[0].icon}}@2x.png"></ion-col>
+    <ion-col class="icon-sm"><img src="https://openweathermap.org/img/wn/{{res.list[32].weather[0].icon}}@2x.png"></ion-col>
+    
+
+    
+  </ion-row>
+<!--Maksimalna dnevna temperatura za tekucu nedelju-->
+  <ion-row>
+    <ion-col class="hi-sm">{{res.list[0].main.temp_max-273.5| number:'1.0-0'}}°C</ion-col>
+    <ion-col class="hi-sm">{{res.list[8].main.temp_max-273.5| number:'1.0-0'}}°C</ion-col>
+    <ion-col class="hi-sm">{{res.list[16].main.temp_max-273.5| number:'1.0-0'}}°C</ion-col>
+    <ion-col class="hi-sm">{{res.list[24].main.temp_max-273.5| number:'1.0-0'}}°C</ion-col>
+    <ion-col class="hi-sm">{{res.list[32].main.temp_max-273.5| number:'1.0-0'}}°C</ion-col>
+   
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="hi-sm">{{res.list[0].main.temp_min-273.5| number:'1.0-0'}}°C</ion-col>
+    <ion-col class="hi-sm">{{res.list[8].main.temp_min-273.5| number:'1.0-0'}}°C</ion-col>
+    <ion-col class="hi-sm">{{res.list[16].main.temp_min-273.5| number:'1.0-0'}}°C</ion-col>
+    <ion-col class="hi-sm">{{res.list[24].main.temp_min-273.5| number:'1.0-0'}}°C</ion-col>
+    <ion-col class="hi-sm">{{res.list[32].main.temp_min-273.5| number:'1.0-0'}}°C</ion-col>
+   
+      </ion-row>
+
+   
+</ion-grid>
+</ion-content>
