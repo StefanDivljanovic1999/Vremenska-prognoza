@@ -7,6 +7,9 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { DayPipe } from '../pipes/day.pipe';
 import { DateFormattingPipe } from '../pipes/date-formatting.pipe';
+import { CustomFilterPipe } from '../custom-filter.pipe';
+
+
 
 @NgModule({
   imports: [
@@ -14,6 +17,7 @@ import { DateFormattingPipe } from '../pipes/date-formatting.pipe';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
+   
   ],
   declarations: [HomePage,
                  DayPipe,

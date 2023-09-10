@@ -10,7 +10,19 @@
 
 <ion-refresher slot="fixed"(ionRefresh)="doRefresh($event)">
 <ion-refresher-content></ion-refresher-content>
+
 </ion-refresher>
+
+
+<ion-searchbar placeholder="Unesite ime grada..."   (ionInput)="FilterJSONData($event) "></ion-searchbar>
+  <div class="ion-padding">
+    <ion-list>
+      <ion-item  (click)="selectVal(item.name)" *ngFor="let item of jsonData">{{item.name}}</ion-item>
+    </ion-list>
+  </div>
+
+
+
 
 <div class="main">
   <span class="city" >{{res.city.name}} </span>
@@ -74,3 +86,4 @@
    
 </ion-grid>
 </ion-content>
+
